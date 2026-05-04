@@ -17,7 +17,8 @@
       "./extensions/permission-gate.ts",
       "./extensions/prompt-url-widget.ts",
       "./extensions/redraws.ts",
-      "./extensions/tps.ts"
+      "./extensions/tps.ts",
+      "./extensions/antigravity-enabler.ts"
     ],
     "prompts": [
       "./prompts"
