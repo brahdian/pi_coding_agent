@@ -24,15 +24,27 @@
 # Pi Monorepo — Zenith Industrial Edition
 
 ## 🧬 Zenith Software Factory Installation
-To deploy the full Zenith Industrial Suite (including the Worker, Subagents, and 20-Pillar Doctrine) on a new machine:
+Deploy the full Zenith Industrial Suite (Worker, Subagents, 20 Pillars) with a single command:
 
-1. **Clone and Install**:
-   ```bash
-   git clone https://github.com/brahdian/pi_coding_agent.git
-   cd pi_coding_agent
-   pi install "$(pwd)/.pi"
-   ```
-2. **Verify**: Type `pi` and you should see the `Zenith ⚡ Loaded` notification.
+### macOS / Linux
+```bash
+git clone https://github.com/brahdian/pi_coding_agent.git
+cd pi_coding_agent
+./zenith-dist/install.sh
+```
+
+### Windows (PowerShell)
+```powershell
+git clone https://github.com/brahdian/pi_coding_agent.git
+cd pi_coding_agent
+.\install.ps1
+```
+
+### Alternative (Direct Genome Registration)
+If you already have Pi installed:
+```bash
+pi install "$(pwd)/.pi"
+```
 
 ---
 
