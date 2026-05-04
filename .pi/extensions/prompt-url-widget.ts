@@ -108,8 +108,11 @@ export default function promptUrlWidgetExtension(pi: ExtensionAPI) {
 		});
 	});
 
-	pi.on("session_start", async (_event, ctx) => {
-		rebuildFromSession(ctx);
+	pi.on("session_start", async (event, ctx) => {
+		// Rebuild widget when switching (resume), forking, or starting new sessions
+		if (event.reason === "resume" || event.reason === "fork" || event.reason === "new") {
+			rebuildFromSession(ctx);
+		}
 	});
 
 	const getUserText = (content: string | { type: string; text?: string }[] | undefined): string => {
@@ -127,6 +130,7 @@ export default function promptUrlWidgetExtension(pi: ExtensionAPI) {
 		if (!ctx.hasUI) return;
 
 		const entries = ctx.sessionManager.getEntries();
+		// Look for the most recent message containing a GH URL
 		const lastMatch = [...entries].reverse().find((entry) => {
 			if (entry.type !== "message" || entry.message.role !== "user") return false;
 			const text = getUserText(entry.message.content);
@@ -137,11 +141,13 @@ export default function promptUrlWidgetExtension(pi: ExtensionAPI) {
 			lastMatch?.type === "message" && lastMatch.message.role === "user" ? lastMatch.message.content : undefined;
 		const text = getUserText(content);
 		const match = text ? extractPromptMatch(text) : undefined;
+		
 		if (!match) {
 			ctx.ui.setWidget("prompt-url", undefined);
 			return;
 		}
 
+		// Restore the widget state
 		setWidget(ctx, match);
 		applySessionName(ctx, match);
 		void fetchGhMetadata(pi, match.kind, match.url).then((meta) => {
