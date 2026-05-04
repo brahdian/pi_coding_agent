@@ -22,7 +22,7 @@ import { StringEnum } from "@mariozechner/pi-ai";
 import { type ExtensionAPI, getMarkdownTheme, withFileMutationQueue } from "@mariozechner/pi-coding-agent";
 import { Container, Markdown, Spacer, Text } from "@mariozechner/pi-tui";
 import { Type } from "typebox";
-import { type AgentConfig, type AgentScope, discoverAgents } from "./subagent-logic.js";
+import { type AgentConfig, type AgentScope, discoverAgents } from "./utils/subagent-logic.js";
 
 const MAX_PARALLEL_TASKS = 8;
 const MAX_CONCURRENCY = 4;

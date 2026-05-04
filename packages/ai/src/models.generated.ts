@@ -8821,13 +8821,13 @@ export const MODELS = {
 			reasoning: true,
 			input: ["text"],
 			cost: {
-				input: 0.435,
-				output: 0.87,
-				cacheRead: 0.003625,
+				input: 0,
+				output: 0,
+				cacheRead: 0,
 				cacheWrite: 0,
 			},
-			contextWindow: 1048576,
-			maxTokens: 384000,
+			contextWindow: 131000,
+			maxTokens: 131000,
 		} satisfies Model<"openai-completions">,
 		"essentialai/rnj-1-instruct": {
 			id: "essentialai/rnj-1-instruct",
@@ -8860,7 +8860,7 @@ export const MODELS = {
 				cacheRead: 0.024999999999999998,
 				cacheWrite: 0.08333333333333334,
 			},
-			contextWindow: 1000000,
+			contextWindow: 1048576,
 			maxTokens: 8192,
 		} satisfies Model<"openai-completions">,
 		"google/gemini-2.0-flash-lite-001": {

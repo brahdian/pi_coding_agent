@@ -11,9 +11,16 @@ if (!(Get-Command node -ErrorAction SilentlyContinue)) {
     exit 1
 }
 
-# 2. Install/Update Pi Core Agent
-Write-Host "Zenith 🛠️  Installing Pi Core Agent via NPM..." -ForegroundColor Gray
-npm install -g @mariozechner/pi-coding-agent
+# 2. Build and Link Pi Core Agent (from Source to preserve Antigravity)
+Write-Host "Zenith 🛠️  Building and Linking Pi Core from Source..." -ForegroundColor Gray
+npm install
+npm run build
+
+Write-Host "Zenith 🛠️  Linking Global Binary..." -ForegroundColor Gray
+$AgentPath = Join-Path $PSScriptRoot "packages/coding-agent"
+Set-Location $AgentPath
+npm link --force
+Set-Location $PSScriptRoot
 
 # 3. Register Zenith Industrial Suite
 # Assumes the script is run from the root of the cloned repo
