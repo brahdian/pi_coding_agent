@@ -43,4 +43,3 @@ collect.sh
 .zenith/
 zenith-dist/
 *.zip
-distribute-zenith.sh
