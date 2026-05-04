@@ -10760,12 +10760,12 @@ export const MODELS = {
 			input: ["text"],
 			cost: {
 				input: 0.039,
-				output: 0.19,
+				output: 0.18,
 				cacheRead: 0,
 				cacheWrite: 0,
 			},
 			contextWindow: 131072,
-			maxTokens: 131072,
+			maxTokens: 4096,
 		} satisfies Model<"openai-completions">,
 		"openai/gpt-oss-120b:free": {
 			id: "openai/gpt-oss-120b:free",

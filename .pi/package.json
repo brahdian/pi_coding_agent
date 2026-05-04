@@ -1,0 +1,26 @@
+{
+  "name": "zenith-industrial-suite",
+  "description": "Zenith Software Factory — 20-Pillar Industrial Grade Development Environment",
+  "version": "1.0.0",
+  "type": "module",
+  "keywords": [
+    "pi-package"
+  ],
+  "pi": {
+    "extensions": [
+      "./extensions/zenith-worker.ts",
+      "./extensions/subagent-tool.ts",
+      "./extensions/handoff.ts",
+      "./extensions/git-checkpoint.ts",
+      "./extensions/dirty-repo-guard.ts",
+      "./extensions/confirm-destructive.ts",
+      "./extensions/permission-gate.ts",
+      "./extensions/prompt-url-widget.ts",
+      "./extensions/redraws.ts",
+      "./extensions/tps.ts"
+    ],
+    "prompts": [
+      "./prompts"
+    ]
+  }
+}

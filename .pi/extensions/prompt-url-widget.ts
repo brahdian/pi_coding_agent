@@ -108,7 +108,7 @@ export default function promptUrlWidgetExtension(pi: ExtensionAPI) {
 		});
 	});
 
-	pi.on("session_switch", async (_event, ctx) => {
+	pi.on("session_start", async (_event, ctx) => {
 		rebuildFromSession(ctx);
 	});
 
@@ -116,7 +116,7 @@ export default function promptUrlWidgetExtension(pi: ExtensionAPI) {
 		if (!content) return "";
 		if (typeof content === "string") return content;
 		return (
-			content
+			(content as { type: string; text: string }[])
 				.filter((block): block is { type: "text"; text: string } => block.type === "text")
 				.map((block) => block.text)
 				.join("\n") ?? ""
@@ -151,8 +151,4 @@ export default function promptUrlWidgetExtension(pi: ExtensionAPI) {
 			applySessionName(ctx, match, title);
 		});
 	};
-
-	pi.on("session_start", async (_event, ctx) => {
-		rebuildFromSession(ctx);
-	});
 }

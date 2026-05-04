@@ -38,3 +38,9 @@ plans/
 .pi/hf-sessions/
 .pi/hf-sessions-backup/
 collect.sh
+
+# Zenith Industrial
+.zenith/
+zenith-dist/
+*.zip
+distribute-zenith.sh
